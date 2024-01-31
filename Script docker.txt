@@ -1,0 +1,5 @@
+docker run --name BITNAMI -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=Usuario -e MYSQL_USER=admin1 -e MYSQL_PASSWORD=1234 -p 3306:3306 -d bitnami/mysql:latest
+
+docker run --name mi_phpmyadmin_container -e PMA_ARBITRARY=1 -e PMA_HOST=BITNAMI --link BITNAMI:db -p 8080:80 -d phpmyadmin/phpmyadmin
+
+docker run --name mi_contenedor_nginx -p 80:80 -d nginx:latest
